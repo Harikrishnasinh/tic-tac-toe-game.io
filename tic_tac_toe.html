@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe | Game</title>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Karla:ital,wght@0,400;0,600;0,800;1,200;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Red+Hat+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            /* font-family: 'DM Serif Display', serif; */
+            /* font-family: 'Inter', sans-serif; */
+            /* font-family: 'Karla', sans-serif; */
+            /* font-family: 'Poppins', sans-serif; */
+            /* font-family: 'Red Hat Display', sans-serif; */
+            font-family: 'Rubik', sans-serif;
+            /* font-family: 'Work Sans', sans-serif; */
+        }
+
+        .container {
+            background: rgb(255, 209, 209);
+            min-height: 100vh;
+            height: auto;
+            width: 100vw;
+            display: grid;
+            align-content: center;
+            justify-content: center;
+            grid-template-columns: 3fr 2fr;
+            /* padding: 0 2rem; */
+            /* margin: 6rem 0; */
+        }
+
+        .row {
+            /* border: 1px solid black; */
+            width: 25rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            height: 9rem;
+            padding: 0 0 0 12rem;
+        }
+
+        .col {
+            border: 5px solid rgb(242, 148, 148);
+            font-size: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 300;
+            color: rgb(242, 148, 148);
+            /* margin: 2rem; */
+        }
+
+        .col:hover {
+            background-color: rgb(242, 148, 148);
+            color: rgb(221, 106, 106);
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .col:nth-child(1) {
+            border-top: none;
+            /* background-color: aqua; */
+            border-left: none;
+        }
+
+        .col:nth-child(3) {
+            border-top: none;
+            /* background-color: aqua; */
+            border-right: none;
+            border-left: none;
+        }
+
+        .col:nth-child(2) {
+            border-top: none;
+            /* background-color: aqua; */
+            border-left: none;
+        }
+
+        .col-last-1 {
+            /* background-color: blue; */
+            border-bottom: none;
+        }
+
+        .col-last-2 {
+            border-bottom: none;
+        }
+
+        .col-last-3 {
+            border-bottom: none;
+        }
+
+        .details {
+            /* background-color: beige; */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 1rem;
+            /* font-weight: 100; */
+        }
+
+        .details h2 {
+            font-weight: 200;
+            font-size: 2.5rem;
+        }
+
+        .details button {
+            background: none;
+            border: 1px solid rgb(242, 148, 148);
+            color: rgb(242, 148, 148);
+            padding: 7px 10px;
+            border-radius: 5px;
+            letter-spacing: 2px;
+            font-size: medium;
+            max-width: 20vw;
+            width: auto;
+            font-weight: 200;
+        }
+
+        .details button:hover {
+            background-color: rgb(242, 148, 148);
+            transition: all 0.4s ease;
+            color: white;
+            box-shadow: 2px 2px 20px rgb(242, 148, 148);
+
+        }
+
+        .details h3 {
+            font-size: 2rem;
+            font-weight: 100;
+        }
+
+        .titleMain {
+            position: absolute;
+            width: 100%;
+            /* background-color: bisque; */
+            text-align: center;
+            margin: 1rem 0 0 0;
+            font-weight: 400;
+            border-bottom: 1px solid rgb(242, 148, 148);
+            padding: 0 0 1rem 0;
+            -webkit-box-shadow: 1px 6px 10px 0px rgb(242, 148, 148);
+            -moz-box-shadow: 1px 6px 10px 0px rgb(242, 148, 148);
+            box-shadow: 1px 6px 10px 0px rgb(242, 148, 148);
+        }
+
+        .Footer {
+            position: absolute;
+            /* background-color: aqua; */
+            width: 100vw;
+            bottom: 0;
+            text-align: center;
+            padding: 0.5rem 0 0 0;
+            margin: 1rem 0 1rem 0;
+            font-size: 20px;
+            font-weight: 200;
+            -webkit-box-shadow: 1px -6px 10px 0px rgb(242, 148, 148);
+            -moz-box-shadow: 1px -6px 10px 0px rgb(242, 148, 148);
+            box-shadow: 1px -6px 10px 0px rgb(242, 148, 148);
+            color: rgb(237, 126, 126);
+        }
+
+        @media (max-width:1096px) {
+            body {
+                background-color: beige;
+            }
+
+            .row {
+                padding: 0 0 0 3rem;
+            }
+        }
+
+        @media (max-width:790px) {
+            .container {
+                grid-template-columns: 1fr;
+                align-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="titleMain">Tic-Tac-Toe Game</h1>
+        <div class="gridContainer">
+            <div class="row">
+                <div class="col">x</div>
+                <div class="col">x</div>
+                <div class="col">x</div>
+            </div>
+            <div class="row">
+                <div class="col">x</div>
+                <div class="col">x</div>
+                <div class="col">x</div>
+            </div>
+            <div class="row">
+                <div class="col col-last-1">x</div>
+                <div class="col col-last-2">x</div>
+                <div class="col col-last-3">x</div>
+            </div>
+        </div>
+        <div class="details">
+            <div>
+                <h2>
+                    turn of <span id="turn">X</span>
+                </h2>
+            </div>
+            <button type="reset">Reset</button>
+            <h3>Congratulations... <span id="winner">X</span></h3>
+        </div>
+        <h1 class="Footer">-- By webDev. Zala HariKrishnasinh --</h1>
+    </div>
+</body>
+
+</html>
