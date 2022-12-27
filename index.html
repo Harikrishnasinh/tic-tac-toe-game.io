@@ -23,6 +23,7 @@
             /* font-family: 'Red Hat Display', sans-serif; */
             font-family: 'Rubik', sans-serif;
             /* font-family: 'Work Sans', sans-serif; */
+            background: rgb(255, 209, 209);
         }
 
         .container {
@@ -46,6 +47,8 @@
             height: 9rem;
             padding: 0 0 0 12rem;
         }
+
+
 
         .col {
             border: 5px solid rgb(242, 148, 148);
@@ -182,6 +185,7 @@
             .container {
                 grid-template-columns: 1fr;
                 align-content: center;
+                overflow: hidden;
             }
 
             .row {
@@ -190,11 +194,18 @@
 
             .gridContainer {
                 margin: auto;
+                margin-top: 7rem;
             }
 
             .details {
                 padding: 2rem;
-                margin: 0;
+                margin-bottom: 4rem;
+            }
+
+            .Footer {
+                position: fixed;
+                bottom: 0;
+                background-color: rgb(255, 209, 209);
             }
         }
     </style>
