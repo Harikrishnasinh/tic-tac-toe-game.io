@@ -174,10 +174,7 @@
             }
 
             .row {
-                /* padding: 0 0 0 3rem; */
                 padding: 0 0 0 3rem;
-                width: 81vw;
-                height: 26vh;
             }
         }
 
@@ -185,7 +182,19 @@
             .container {
                 grid-template-columns: 1fr;
                 align-content: center;
-                overflow: hidden;
+            }
+
+            .row {
+                padding: 0 0 0 0;
+            }
+
+            .gridContainer {
+                margin: auto;
+            }
+
+            .details {
+                padding: 2rem;
+                margin: 0;
             }
         }
     </style>
@@ -214,7 +223,7 @@
         <div class="details">
             <div>
                 <h2>
-                    turn of <span id="turn">X</span>
+                    Turn of <span id="turn">X</span>
                 </h2>
             </div>
             <button type="reset">Reset</button>
