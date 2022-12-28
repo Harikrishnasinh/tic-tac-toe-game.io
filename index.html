@@ -171,6 +171,86 @@
             color: rgb(237, 126, 126);
         }
 
+        .popup {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 90vh;
+            padding: 10px;
+            /* background-color: aqua; */
+            gap: 2rem;
+            transform: translateY(50rem);
+            display: none;
+            z-index: 1111111;
+        }
+
+        .popup-visible {
+            transform: translateY(0);
+            display: flex;
+            transition: all 2s ease;
+        }
+
+
+        .popup-buttons {
+            display: flex;
+            flex-direction: column;
+            width: 30vw;
+        }
+
+        #play {
+            /* background-color: blue; */
+            padding: .7rem 2rem;
+            color: white;
+            margin-bottom: 20px;
+            background: none;
+            /* border: 1px solid black; */
+            border: none;
+            background-color: rgb(242, 148, 148);
+            transition: all 0.4s ease;
+            color: white;
+            font-size: 24px;
+            font-weight: 100;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 2px 2px 20px rgb(242, 148, 148);
+        }
+
+        #play:hover {
+            color: rgb(242, 148, 148);
+            transition: all 0.4s ease;
+            background: none;
+            /* box-shadow: 2px 2px 20px rgb(242, 148, 148); */
+            box-shadow: none;
+            /* background: white; */
+            border: 2px solid rgb(242, 148, 148);
+        }
+
+        #exit {
+            background: none;
+            border: none;
+            color: rgb(242, 148, 148);
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .popup-details {
+            color: rgb(237, 126, 126);
+            background-color: blue;
+            text-align: center;
+        }
+
+        .popup-details h2 {
+            font-weight: 500;
+        }
+
+        .popup-details h1 {
+            font-weight: 400;
+        }
+
         @media (max-width:1096px) {
             body {
                 background-color: beige;
@@ -206,7 +286,7 @@
                 position: fixed;
                 bottom: 0;
                 background-color: rgb(255, 209, 209);
-                margin:0;
+                height: auto;
             }
         }
     </style>
@@ -217,19 +297,29 @@
         <h1 class="titleMain">Tic-Tac-Toe Game</h1>
         <div class="gridContainer">
             <div class="row">
-                <div class="col">x</div>
-                <div class="col">x</div>
-                <div class="col">x</div>
+                <div onclick="button_clicked(this)" id="0" class="col"></div>
+                <div onclick="button_clicked(this)" id="1" class="col"></div>
+                <div onclick="button_clicked(this)" id="2" class="col"></div>
             </div>
             <div class="row">
-                <div class="col">x</div>
-                <div class="col">x</div>
-                <div class="col">x</div>
+                <div onclick="button_clicked(this)" id="3" class="col"></div>
+                <div onclick="button_clicked(this)" id="4" class="col"></div>
+                <div onclick="button_clicked(this)" id="5" class="col"></div>
             </div>
             <div class="row">
-                <div class="col col-last-1">x</div>
-                <div class="col col-last-2">x</div>
-                <div class="col col-last-3">x</div>
+                <div onclick="button_clicked(this)" id="6" class="col col-last-1"></div>
+                <div onclick="button_clicked(this)" id="7" class="col col-last-2"></div>
+                <div onclick="button_clicked(this)" id="8" class="col col-last-3"></div>
+            </div>
+        </div>
+        <div class="popup" id="popup">
+            <div class="popup-details">
+                <h1>Congratulations... <span id="winner"></span></h1>
+                <h2>Want to continue !!</h2>
+            </div>
+            <div class="popup-buttons">
+                <button id="play" onclick="continuePlaying()"> Play</button>
+                <button id="exit" onclick="exit()">Exit</button>
             </div>
         </div>
         <div class="details">
@@ -239,10 +329,10 @@
                 </h2>
             </div>
             <button type="reset">Reset</button>
-            <h3>Congratulations... <span id="winner">X</span></h3>
         </div>
         <h1 class="Footer">-- By webDev. Zala HariKrishnasinh --</h1>
     </div>
+    <script src="script.js"></script>
 </body>
 
 </html>
