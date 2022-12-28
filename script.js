@@ -76,7 +76,7 @@ function continuePlaying() {
     // arr[0] = null;
     // console.log(arr);
     // popup.classList.remove("popup-visible");
-    window.location.href = "tic_tac_toe.html";
+    window.location.href = "index.html";
 }
 
 function exit() {
