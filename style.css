@@ -128,7 +128,7 @@
     font-weight: 200;
 }
 
-.details button:hover {
+.details button:focus {
     background-color: rgb(242, 148, 148);
     transition: all 0.4s ease;
     color: white;
@@ -222,7 +222,7 @@
     box-shadow: 2px 2px 20px rgb(242, 148, 148);
 }
 
-#play:hover {
+#play:focus {
     color: rgb(242, 148, 148);
     transition: all 0.4s ease;
     background: none;
